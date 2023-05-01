@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "916812813546",
+    "project_id": "kenz-market",
+    "storage_bucket": "kenz-market.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916812813546:android:bf3368057833e81d47f393",
+        "android_client_info": {
+          "package_name": "com.kenzmarket.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916812813546-kf7tm1anfvm430dt3j1u206nca16jmv7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kenzmarket.application",
+            "certificate_hash": "a9600e1897081fd81d4a4048a26165ebdcc934b1"
+          }
+        },
+        {
+          "client_id": "916812813546-mhabo7f893lcal0okqe27r01ujfkvque.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kenzmarket.application",
+            "certificate_hash": "e59a3e9969c7d8221ae5a6a50c2d94c09e59e22b"
+          }
+        },
+        {
+          "client_id": "916812813546-ob6s57tnef777tph1c745qqjmb9jdgfr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kenzmarket.application",
+            "certificate_hash": "1faf75dc02611e28e723e61eeaf675163c3c252c"
+          }
+        },
+        {
+          "client_id": "916812813546-krofa155igk0ehrgc514nogh71aen8sb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2gNbNkXVPMW0PpPuIxQkHtf5IncBW_1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916812813546-krofa155igk0ehrgc514nogh71aen8sb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "916812813546-if0tark0neclkjppslbhm6782nn6bhu8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kenzMarket"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

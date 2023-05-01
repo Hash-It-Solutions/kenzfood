@@ -1,0 +1,444 @@
+{
+
+
+  "Order_en": "Orders",
+  "Order_Ar": "طَلَبُ",
+
+    "Wishlist_en": "Wishlist",
+    "Wishlist_Ar": "قائِمة أُمْنيّاتٍ",
+
+    "Coupon_en": "Coupon",
+    "Coupon_Ar": "قسيمة",
+
+    "helpcenter_en": "Help Center",
+    "helpcenter_Ar": "مركز المساعدة",
+
+
+    "Accountsettings_en": "Account Settings",
+    "Accountsettings_Ar": "إعدادت الحساب",
+
+
+    "Editprofile_en": "Edit Profile",
+    "Editprofile_Ar": "تعديل الملف الشخصي",
+
+    "Savedaddress_en": "Saved Address",
+    "Savedaddress_Ar": "العنوان المحفوظ",
+
+
+    "Selectlanguage_en": "Select Language",
+    "Selectlanguage_Ar": "اختار اللغة",
+
+    "Home_en": "Home",
+    "Home_Ar": "إلى البَيْت",
+
+    "Category_en": "Category",
+    "Category_Ar": "تَصْنيف",
+
+     "Search_en": "Search",
+     "Search_Ar": "يبحث",
+
+     "Cart_en": "Cart",
+     "Cart_Ar": "عَرَبة",
+
+     "MyAccount_en": "My Account",
+     "MyAccount_Ar": "حسابي",
+
+  "Fastdelivery_en": "Fast Delivery",
+  "Fastdelivery_Ar": "توصيل سريع",
+
+  "Normaldelivery_en": "Normal Delivery",
+  "Normaldelivery_Ar": "توصيلة طبيعية",
+
+  "Deliverylocation_en": "Delivery Location",
+  "Deliverylocation_Ar":"موقع التسليم",
+
+  "addtocart_en": " Add To Cart",
+  "addtocart_Ar": "أَضِفْ إلى عَرَبةِ التَسَوُّقِ",
+
+  "price_en": "Price",
+  "price_Ar": "سعر",
+  "Moreinfo_en": "More Info",
+  "Moreinfo_Ar": "مزيد من المعلومات",
+  "Buynow_en": "Buy Now",
+  "Buynow_Ar": "اشتري الآن",
+  "youmaylike_en": "You May Like",
+  "youmaylike_Ar": "قد يعجبك",
+
+  "mycart_en": "My Cart",
+  "mycart_ar": "عربة التسوق الخاصة بي",
+
+  "clearall_en": "Clear All",
+  "clearall_ar": "امسح الكل",
+
+  "checkout_en": "Checkout",
+  "checkout_ar": "الدفع",
+
+  "delete_en": "Delete",
+  "delete_ar": "حذف",
+
+  "items_en": "Items",
+  "items_ar": "العناصر",
+
+  "clearmsg_cart_en": "Do you want to clear all items from cart ?",
+  "clearmsg_cart_ar": "هل تريد مسح جميع العناصر من سلة التسوق؟",
+
+  "deleteitem_cart_en": "Do you want to delete item from cart ?",
+  "deleteitem_cart_ar": "هل تريد حذف عنصر من سلة التسوق؟",
+
+  "yes_en": "Yes",
+  "Yes_ar": "نعم",
+
+  "No_en": "No",
+  "No_ar": "رقم",
+
+  "kenz_food_en": "Kenz Food",
+  "kenz_food_ar": "كنز فود",
+
+  "Total_amount_en": "Total Amount",
+  "Total_amount_ar": "المبلغ الإجمالي",
+
+  "Total_items_en": "Total Items",
+  "Total_items_ar": "إجمالي العناصر",
+
+  "TotalPrice_en": "Total Price",
+  "TotalPrice_ar": "السعر الكلي",
+
+  "deliverycharge_en": "Delivery Charge",
+  "deliverycharge_ar": "رسوم التوصيل",
+
+  "amounttopay_en": "Amount To Pay",
+  "amounttopay_ar": "المبلغ للدفع",
+
+  "Address_en": "Address",
+  "Address_ar": "تبوك",
+
+  "continuetopayment_en": "Continue To Payment",
+  "continuetopayment_ar": "الاستمرار في الدفع",
+
+  "PlaceOrder_en": "Place Order",
+  "PlaceOrder_ar": "مكان الامر",
+
+  "Change_en": "Change",
+  "Change_ar": "يتغيرون",
+
+  "selectaddress_en": "Select Address",
+  "selectaddress_ar": "حدد العنوان",
+
+  "selectpaymentmetho_en": "Select Payment Method",
+  "selectpaymentmetho_ar" : "اختار طريقة الدفع",
+
+  "myorder_en": "My Orders",
+  "myorder_ar":  "طلباتي" ,
+
+  "orderid_en": "Order ID",
+  "orderid_ar": "رقم التعريف الخاص بالطلب" ,
+
+  "OrderDate_en": "Order Date",
+  "OrderDate_ar": "تاريخ الطلب",
+
+  "cancel_en": "Cancel",
+  "cancel_ar": "يلغي" ,
+
+  "cancelled_en": "Cancelled",
+  "cancelled_ar": "ألغيت" ,
+
+  "Order_detail_en": "Order Details",
+  "Order_detail_ar": "تفاصيل الطلب",
+
+  "itemsinorder_en": "Items in this Order",
+  "itemsinorder_ar": "العناصر الموجودة في هذا الطلب" ,
+
+  "qty_en": "Quantity",
+  "qty_ar": "كمية",
+
+  "status_en": "Status",
+  "status_ar": "حالة",
+
+  "myaddress_en": "My Address",
+  "myaddress_ar": "عنواني",
+
+  "mobile_en": "Mobile",
+  "mobile_ar": "متحرك",
+
+  "city_en": "City",
+  "city_ar": "مدينة",
+
+  "postalcode_en": "Postal Code",
+  "postalcode_ar": "الرمز البريدي",
+
+  "telephonenumber_en": "Telephone Number",
+  "telephonenumber_ar": "رقم هاتف" ,
+
+  "addresline_1_en":"Address Line 1",
+  "addresline_1_ar": "العنوان الأول" ,
+
+  "addresline_2_en":"Address Line 2",
+  "addresline_2_ar": "سطر العنوان 2",
+
+  "selectlocation_en": "Select Location",
+  "selectlocation_ar": "اختر موقعا",
+
+  "addadress_en": "Add Address",
+  "addadress_ar": "اضف عنوان" ,
+
+  "add_en": "Add",
+  "add_ar": "يضيف",
+
+  "categories_ar": "فئات",
+  "categories_en": "Categories",
+
+  "clearwishlistmg_ar": "هل تريد مسح جميع العناصر من قائمة الرغبات؟",
+  "clearwishlistmg_en":"Do you want to clear all items from wishlist ?",
+
+  "nodatafound_ar": "لاتوجد بيانات" ,
+  "nodatafound_en": "No data found",
+
+  "contactus_en": "Contact Us",
+  "contactus_ar": "اتصل بنا" ,
+
+  "whatsapp_en": "WhatsApp",
+  "whatsapp_ar": "ال WhatsApp" ,
+
+  "chat_en": "Chat",
+  "chat_ar": "دردشة" ,
+
+  "customersupport_en": "Customer Support",
+  "customersupport_ar": "دعم العملاء",
+
+  "editprofile_en": "Edit Profile",
+  "editprofile_ar": "تعديل الملف الشخصي",
+
+  "firstname_en": "First Name",
+  "firstname_ar": "الاسم الاول" ,
+
+
+  "lastname_en": "Last Name",
+  "lastname_ar": "الكنية" ,
+
+  "submit_en": "Submit",
+  "submit_ar": "إرسال" ,
+
+  "emailid_en": "Email ID",
+  "emailid_ar": "عنوان الايميل" ,
+
+  "update_en": "Update",
+  "update_ar": "تحديث" ,
+
+  "changepassword_en": "Change Password",
+  "changepassword_ar": "غير كلمة السر" ,
+
+  "deactivateacc_en": "Delete Account",
+  "deactivateacc_ar": "حذف الحساب",
+
+  "profilemsg_ar": "سنحتفظ بصورة ملفك الشخصي لغرض التتبع فقط ، هل تريد المتابعة؟",
+  "profilemsg_en": "We will keep your profile photo for tracking purpose only.Do you want to continue ?",
+
+
+  "oldpassword_en": "Enter Your Password",
+  "oldpassword_ar": "ادخل رقمك السري" ,
+
+  "newpassword_en": "New Password",
+  "newpassword_ar": "كلمة سر جديدة" ,
+
+  "confirmpassword_en": "Confirm Password",
+  "confirmpassword_ar": "تأكيد كلمة المرور",
+
+  "username_en": "Username",
+  "username_ar": "اسْم الدُخولِ",
+
+  "phonenumber_en": "Phone Number",
+  "phonenumber_ar": "رَقْم الهاتِفِ",
+
+  "signup_en": "Sign Up",
+  "signup_ar":"تَطَوَّعَ",
+
+  "alreadyhaveaccount_en": "Already have an account ?",
+  "alreadyhaveaccount_ar":"هل لديك حساب ؟",
+
+  "password_en": "Password",
+  "password_ar":"كَلِمة سِرٍّ",
+
+  "login_en": "Login",
+  "login_ar":"دُخول",
+
+  "Today_deal_en": "You May Like This",
+  "Today_deal_ar": "قد يعجبك هذا",
+
+  "forgotpassword_en": "Forgot Your Password ?",
+  "forgotpassword_ar": "نسيت رقمك السري ؟",
+
+  "createaccount_ar": "أَنْشَأَ حِساباً",
+  "createaccount_en": "Create An  Account",
+
+  "email_en": "Email",
+  "email_ar": "أَرْسَلَ رِسالةً إلِكْتْرونيّةً ل",
+
+  "or_en": "Or",
+  "or_ar": "أو",
+
+  "recentlyviewed_en": "Recently Viewed",
+  "recentlyviewed_ar": "شوهدت مؤخرا",
+
+  "search_hint_en": "What are you looking for ?",
+  "search_hint_ar": "ما الذي تبحث عنه ؟",
+
+  "notification_en": "Notifications",
+  "notification_ar": "إشعارات",
+
+  "edit_en": "Edit",
+  "edit_ar": "تعديل",
+
+  "delete_address_en": "Do you want to delete address now ?",
+  "delete_address_ar": "هل تريد حذف العنوان الآن؟",
+
+  "logout_en": "Logout",
+  "logout_ar": "تسجيل خروج",
+
+  "logoutmsg_en": "Do you want to logout now ?",
+  "logoutmsg_ar": "هل تريد تسجيل الخروج الآن؟",
+
+  "photosecurewarning_en": "We will keep your profile photo secure, We do not going to share outside.Do you want to continue ?",
+  "photosecurewarning_ar": "سنحافظ على صورة ملفك الشخصي آمنة ، ولن نشاركها في الخارج ، هل تريد المتابعة؟",
+
+  "infoalert_en": "We will keep your informations secure, We do not going to share outside.Do you want to continue ?",
+  "infoalert_ar": "سنحافظ على أمان معلوماتك ، ولن نشاركها في الخارج ، هل تريد المتابعة؟",
+
+  "see_all_en": "See all",
+  "see_all_ar": "اظهار الكل",
+
+
+  "allcategories_en": "All Categories",
+  "allcategories_ar": "جميع الفئات",
+
+  "addnew_en": "Add New",
+  "addnew_ar": "اضف جديد",
+
+  "mychat_en": "My Chat",
+  "mychat_ar": "الدردشة الخاصة بي",
+
+  "writemsg_en": "Write Message",
+  "writemsg_ar": "اكتب رسالة",
+
+  "deliveryaddr_en": "Delivery Address",
+  "deliveryaddr_ar": "عنوان التسليم",
+
+  "orderstatus_en": "Order Status",
+  "orderstatus_ar": "حالة الطلب",
+
+  "ordered_en": "Ordered",
+  "ordered_ar": "أمر",
+
+  "pending_en": "Pending",
+  "pending_ar": "قيد الانتظار",
+
+  "outofdelivery_en": "Dispatched",
+  "outofdelivery_ar": "خارج الخدمة",
+
+  "delivered_en": "Delivered",
+  "delivered_ar": "تم التوصيل",
+
+  "voucherstitle_en": "Vouchers",
+  "voucherstitle_ar": "قسائم",
+
+  "reset_password_en": "Reset Password",
+  "reset_password_ar": "إعادة تعيين كلمة المرور",
+
+  "discount_en": "Discount",
+  "discount_ar": "تخفيض",
+
+  "total_en": "Total",
+  "total_ar": "المجموع",
+
+  "door_delivery_en": "Door Delivery",
+  "door_delivery_ar": "تسليم الباب",
+
+  "pickup_en": "Pick Up",
+  "pickup_ar": "يلتقط",
+
+  "applycoupon_en": "Apply Coupon",
+  "applycoupon_ar": "تطبيق القسيمة",
+
+  "cashondelivery_en": "Cash on Delivery",
+  "cashondelivery_ar": "الدفع عند الاستلام",
+
+  "couponcodeapplied_en": "Coupon Code Applied ",
+  "couponcodeapplied_ar": "تم تطبيق رمز القسيمة",
+
+  "paynow_en": "Pay Now",
+  "paynow_ar": "ادفع الآن",
+
+  "deliverymethode_en": "Delivery Methode",
+  "deliverymethode_ar": "طريقة التسليم",
+
+  "select_en": "Select",
+  "select_ar": "يختار",
+
+  "couponcode_en": "Coupon Code",
+  "couponcode_ar": "رمز الكوبون",
+
+  "apply_en": "Apply",
+  "apply_ar": "يتقدم",
+
+  "congratulations_en": "Congratulations",
+  "congratulations_ar": "تهانينا",
+
+  "orderplaced_en": "Your Order has been placed successfully",
+  "orderplaced_ar": "تم وضع طلبك بنجاح",
+
+  "trackyourorder_en": "Track Your Order",
+  "trackyourorder_ar": "أتبع طلبك",
+
+  "failure_en": "Failure",
+  "failure_ar": "فشل",
+
+  "failuremsg_en": "Failed to Place Your Order",
+  "failuremsg_ar": "فشل في تقديم طلبك",
+
+  "entermob_en": "Enter your mobile number",
+  "entermob_ar": "أدخل رقم هاتفك المحمول",
+
+  "wewillmsg_en": "We will send you a verification code",
+  "wewillmsg_ar": "سوف نرسل لك رمز التحقق",
+
+  "continue_en": "Continue",
+  "continue_ar": "يكمل",
+
+  "byclick_en": "By clicking on \"Continue\" you are agreeing to our ",
+  "byclick_ar": "بالنقر فوق \"متابعة\" ، فإنك توافق على",
+
+  "termsofuse_en": "terms of use",
+  "termsofuse_ar": "شروط الاستخدام",
+
+  "wholesalereg_en": "Wholesale Register?",
+  "wholesalereg_ar": "سجل الجملة؟",
+
+  "enteryourname_en": "Enter your full name",
+  "enteryourname_ar": "أدخل اسمك الكامل",
+
+  "enteryourmailid_en": "Enter your Email",
+  "enteryourmailid_ar": "أدخل بريدك الإلكتروني",
+
+  "verifyyourmob_en": "Verify mobile number",
+  "verifyyourmob_ar": "تحقق من رقم الهاتف المحمول",
+
+
+  "checkotp_en": "Please check the OTP send to your mobile number",
+  "checkotp_ar": "يرجى التحقق من إرسال OTP إلى رقم هاتفك المحمول",
+
+  "pleaseentercorrect_otp_en": "Please enter the correct OTP",
+  "pleaseentercorrect_otp_ar": "الرجاء إدخال كلمة المرور لمرة واحدة الصحيحة",
+
+  "verifycontinue_en": "Verify & Continue",
+
+  "verifycontinue_ar": "تحقق ومتابعة",
+
+  "resendotp_en": "Resend OTP",
+  "resendotp_ar": "إعادة إرسال OTP",
+
+  "pleasewaitforOTP_en": "Please wait before Resend",
+  "pleasewaitforOTP_ar": "يرجى الانتظار قبل إعادة الإرسال",
+
+  "dohaqatar_en": "Doha Qatar",
+  "dohaqatar_ar": "الدوحة قطر"
+
+}
