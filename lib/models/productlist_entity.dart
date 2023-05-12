@@ -104,7 +104,7 @@ class ProductlistProductsProductImages {
 @JsonSerializable()
 class ProductlistProductsProductStock {
 
-	late int id;
+	late int id=0;
 	@JSONField(name: "main_rack_no")
 	dynamic mainRackNo;
 	@JSONField(name: "max_stock")
@@ -123,6 +123,12 @@ class ProductlistProductsProductStock {
 	late String productPurchasePrice;
 	@JSONField(name: "sub_rack_no")
 	dynamic subRackNo;
+	@JSONField(name: "wholesale_count")
+	late int wholesaleCount=0;
+	@JSONField(name: "wholesale_unit")
+	late String wholesaleUnit="";
+
+
   
   ProductlistProductsProductStock();
 

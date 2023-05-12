@@ -73,6 +73,8 @@ class _NewHomePageState extends State<NewHomePage> {
 
 Map<CategoryListCategories,ProductlistEntity >productwithcategory=new Map();
 
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -2808,123 +2810,7 @@ Map<CategoryListCategories,ProductlistEntity >productwithcategory=new Map();
                                           ? ResponsiveInfo.isSmallMobile(context)
                                           ?5:8:11),
 
-                                      child: GestureDetector(
-
-                                        child:  Icon(Icons.favorite_outline,color:(products[j].inWishlist)?Colors.red: Colors.black,size:ResponsiveInfo.isMobile(context)
-                                            ? ResponsiveInfo.isSmallMobile(context)
-                                            ?20:23:28 ,),
-
-                                        onTap: () async {
-
-                                          if(!products[j].inWishlist)
-                                          {
-
-                                            wishlistDataProvider=Provider.of<WishlistDataProvider>(context, listen: false);
-
-
-                                            String response=await  wishlistDataProvider.addWishlist(context, products[j].id.toString());
-
-                                            if(response.isNotEmpty)
-                                            {
-
-
-
-
-                                              Map body = json.decode(response);
-
-                                              if(body!=null) {
-
-                                                if(body.containsKey("message")) {
-
-                                                  setState(() {
-
-                                                    ProductlistProducts p=products[j];
-
-                                                    p.inWishlist=true;
-
-                                                    int a=j;
-                                                    // w.insert(j, Container(width: 30,height: 30,color: Colors.red,));
-
-                                                    // products.removeAt(a);
-                                                    // products.insert(a,p);
-                                                    //
-                                                    //
-                                                    // getProductsByCategory( categori, products);
-
-                                                  });
-                                                  // getAllItemsFromCart();
-
-                                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                                    content: Text(
-                                                        body["message"]),
-                                                  ));
-                                                  print(body["message"]);
-                                                }
-                                              }
-
-
-
-
-                                            }
-                                          }
-                                          else{
-
-                                            wishlistDataProvider=Provider.of<WishlistDataProvider>(context, listen: false);
-
-                                            String response=await  wishlistDataProvider.remove(context, products[j].id.toString());
-
-                                            if(response.isNotEmpty)
-                                            {
-
-
-
-
-                                              Map body = json.decode(response);
-
-                                              if(body!=null) {
-
-                                                if(body.containsKey("message")) {
-
-                                                  setState(() {
-
-
-                                                  //  products[j].inWishlist=false;
-
-                                                    ProductlistProducts p=products[j];
-
-                                                    p.inWishlist=false;
-
-                                                    int a=j;
-                                                    // w.insert(j, Container(width: 30,height: 30,color: Colors.red,));
-                                                    // products.removeAt(a);
-                                                    // products.insert(a,p);
-                                                    // getProductsByCategory( categori, products);
-                                                  });
-
-
-
-
-                                                  // getAllItemsFromCart();
-
-                                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                                    content: Text(
-                                                        body["message"]),
-                                                  ));
-                                                  print(body["message"]);
-                                                }
-                                              }
-
-
-
-
-                                            }
-
-                                          }
-
-
-
-                                        },
-                                      )
+                                      child: Container()
 
 
 

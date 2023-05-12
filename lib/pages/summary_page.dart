@@ -223,7 +223,7 @@ class _SummaryPageState extends State<SummaryPage> {
                                   child: Container(
 
                                     width: double.infinity,
-                                    height: ResponsiveInfo.isMobile(context)? ResponsiveInfo.isSmallMobile(context)?140:175:210,
+                                    height: ResponsiveInfo.isMobile(context)? ResponsiveInfo.isSmallMobile(context)?130:150:180,
                                     color: Colors.white,
 
                                     child:  Column(

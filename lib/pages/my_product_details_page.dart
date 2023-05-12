@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../config/constant.dart';
 import '../databasehelper/DatabaseHelper.dart';
 import '../databasehelper/DatabaseTables.dart';
 import '../dataproviders/CartDataProvider.dart';
+import '../dataproviders/WishlistProvider.dart';
 import '../models/productlist_entity.dart';
 import '../utils/LanguageValues.dart';
 import '../utils/ResponsiveInfo.dart';
@@ -34,24 +36,56 @@ class _MyProductDetailsPageState extends State<MyProductDetailsPage> {
 
   String language="",addtocart="";
 
-  String doordelivery="Door Delivery",pickup="Pick Up";
+  String doordelivery="Door Delivery",pickup="Pick Up",usertype="user",unitqty="Unit Quantity",unit="Unit";
 
   int code=1;
 
-  String currentdate="",current_time="";
+  String currentdate="",current_time="",wholesalecount="",wholesaleunit="";
 
 
   int paymentmethode=-1;
-
+  late WishlistDataProvider wishlistDataProvider;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     checkLanguage();
     cartDataProvider = Provider.of<CartDataProvider>(context, listen: false);
+    getUserType();
 
 
     addToHistory(productlistProducts);
+  }
+
+  getUserType()
+  async {
+
+    String usertpe = await getStringValue("user_tye");
+
+    setState(() {
+
+      if(usertpe.isNotEmpty)
+      {
+        if(usertpe.compareTo("wholesale")==0)
+        {
+
+          usertype="wholesale";
+        }
+        else{
+          usertype="normal";
+        }
+
+
+
+      }
+      else{
+        usertype="normal";
+
+      }
+
+    });
+
+
   }
 
 
@@ -98,6 +132,10 @@ class _MyProductDetailsPageState extends State<MyProductDetailsPage> {
     }
 
     if (productlistProducts.productStock.length > 0) {
+
+      wholesalecount=   productlistProducts.productStock[0].wholesaleCount.toString();
+      wholesaleunit=   productlistProducts.productStock[0].wholesaleUnit.toString();
+
       price = double.parse(
           productlistProducts.productStock[0]
               .productPrice);
@@ -176,11 +214,150 @@ class _MyProductDetailsPageState extends State<MyProductDetailsPage> {
 
                           children: [
 
+                            Stack(
+
+                              children: [
+
+                                Align(
+
+                                  alignment: FractionalOffset.topRight,
+                                  child:                         Container(
+                                      margin: EdgeInsets.all(ResponsiveInfo.isMobile(context)
+                                          ? ResponsiveInfo.isSmallMobile(context)
+                                          ?2:5:8),
+
+                                      child: GestureDetector(
+
+                                        child:  Icon(Icons.favorite_outline,color:(productlistProducts.inWishlist)?Colors.red: Colors.black,size:ResponsiveInfo.isMobile(context)
+                                            ? ResponsiveInfo.isSmallMobile(context)
+                                            ?20:23:28 ,),
+
+                                        onTap: () async {
+
+                                          if(!productlistProducts.inWishlist)
+                                          {
+
+                                            wishlistDataProvider=Provider.of<WishlistDataProvider>(context, listen: false);
+
+
+                                            String response=await  wishlistDataProvider.addWishlist(context, productlistProducts.id.toString());
+
+                                            if(response.isNotEmpty)
+                                            {
+
+
+
+
+                                              Map body = json.decode(response);
+
+                                              if(body!=null) {
+
+                                                if(body.containsKey("message")) {
+
+                                                  setState(() {
+
+                                                    ProductlistProducts p=productlistProducts;
+
+                                                    p.inWishlist=true;
+
+
+                                                    // w.insert(j, Container(width: 30,height: 30,color: Colors.red,));
+
+                                                    // products.removeAt(a);
+                                                    // products.insert(a,p);
+                                                    //
+                                                    //
+                                                    // getProductsByCategory( categori, products);
+
+                                                  });
+                                                  // getAllItemsFromCart();
+
+                                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                                    content: Text(
+                                                        body["message"]),
+                                                  ));
+                                                  print(body["message"]);
+                                                }
+                                              }
+
+
+
+
+                                            }
+                                          }
+                                          else{
+
+                                            wishlistDataProvider=Provider.of<WishlistDataProvider>(context, listen: false);
+
+                                            String response=await  wishlistDataProvider.remove(context, productlistProducts.id.toString());
+
+                                            if(response.isNotEmpty)
+                                            {
+
+
+
+
+                                              Map body = json.decode(response);
+
+                                              if(body!=null) {
+
+                                                if(body.containsKey("message")) {
+
+                                                  setState(() {
+
+
+                                                    ProductlistProducts p=productlistProducts;
+
+                                                    p.inWishlist=false;
+
+                                                  });
+
+
+
+
+                                                  // getAllItemsFromCart();
+
+                                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                                    content: Text(
+                                                        body["message"]),
+                                                  ));
+                                                  print(body["message"]);
+                                                }
+                                              }
+
+
+
+
+                                            }
+
+                                          }
+
+
+
+                                        },
+                                      )
+
+
+
+
+
+                                  ),
+                                )
+
+                              ],
+                            ),
+
 
 
 
                             (productlistProducts.productImages.length>0)?
-                            Image.network(productlistProducts.productImages[0].productImageUrl,fit: BoxFit.fill,
+                            Image.network(productlistProducts.productImages[0].productImageUrl,fit: BoxFit.fill, width: (MediaQuery
+                                .of(context)
+                                .size
+                                .width), height: (MediaQuery
+                                .of(context)
+                                .size
+                                .width) / 2.2,
 
                                 errorBuilder:(BuildContext context, Object exception, StackTrace? stackTrace) {
                                   return Image.asset(
@@ -195,7 +372,7 @@ class _MyProductDetailsPageState extends State<MyProductDetailsPage> {
                                 .width), height: (MediaQuery
                                 .of(context)
                                 .size
-                                .width) / 1.89349112, fit: BoxFit.fill
+                                .width) / 2, fit: BoxFit.fill
                             )
 
                             ,
@@ -211,6 +388,61 @@ class _MyProductDetailsPageState extends State<MyProductDetailsPage> {
 
 
                             ),height: ResponsiveInfo.isMobile(context)?ResponsiveInfo.isSmallMobile(context)?150:200:250,),
+
+
+
+
+
+
+                            (usertype.compareTo("wholesale")==0)?     Padding(padding:
+                                ResponsiveInfo.isMobile(context) ? ResponsiveInfo
+                                    .isSmallMobile(context) ? EdgeInsets.all(2) :
+                                EdgeInsets.all(4) :
+                                EdgeInsets.all(6),
+
+                                  child: Text(
+                                    unitqty+" : "+wholesalecount,
+                                    maxLines: 2,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+
+                                        fontFamily: 'poppins',
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: ResponsiveInfo.isMobile(context)
+                                            ? ResponsiveInfo.isSmallMobile(context) ? 11 : 12
+                                            : 14,
+
+                                        color: Color(0xff01713D)),
+                                  ),
+
+
+                                ) : Container(),
+
+                                (usertype.compareTo("wholesale")==0)?   Padding(padding:
+                                ResponsiveInfo.isMobile(context) ? ResponsiveInfo
+                                    .isSmallMobile(context) ? EdgeInsets.all(2) :
+                                EdgeInsets.all(4) :
+                                EdgeInsets.all(6),
+
+                                  child: Text(
+                                    unit+" : "+wholesaleunit,
+                                    maxLines: 2,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+
+                                        fontFamily: 'poppins',
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: ResponsiveInfo.isMobile(context)
+                                            ? ResponsiveInfo.isSmallMobile(context) ? 11 : 12
+                                            : 14,
+
+                                        color: Color(0xff01713D)),
+                                  ),
+
+
+                                ) : Container(),
+
+
 
 
 
@@ -579,6 +811,8 @@ class _MyProductDetailsPageState extends State<MyProductDetailsPage> {
         language=currentlanguage;
 
         addtocart=lde['addtocart_en'];
+        unit=lde['unit_en'];
+        unitqty=lde['unitqty_en'];
 
 
 
@@ -586,6 +820,8 @@ class _MyProductDetailsPageState extends State<MyProductDetailsPage> {
       else {
         language=currentlanguage;
         addtocart=lde['addtocart_Ar'];
+        unit=lde['unit_ar'];
+        unitqty=lde['unitqty_ar'];
       }
 
     });

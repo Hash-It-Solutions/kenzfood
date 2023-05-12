@@ -42,11 +42,43 @@ class ProductListProvider extends ChangeNotifier{
         {
 
           url=ServerConstants.baseurl+ServerConstants.get_product;
+
+          String usertype = await getStringValue("user_tye");
+
+          if(usertype.isNotEmpty)
+          {
+            if(usertype.compareTo("wholesale")==0)
+            {
+              url=url+"?user_type=wholesale";
+
+            }
+
+
+
+          }
         }
       else{
         url=ServerConstants.baseurl+ServerConstants.get_product+"?parm="+param+"&id="+id;
 
+        String usertype = await getStringValue("user_tye");
+
+        if(usertype.isNotEmpty)
+        {
+          if(usertype.compareTo("wholesale")==0)
+          {
+            url=url+"&user_type=wholesale";
+
+          }
+
+
+
+        }
+
       }
+
+      // saveStringValue("user_tye", data.userType.toString()) ;
+
+
 
 
 

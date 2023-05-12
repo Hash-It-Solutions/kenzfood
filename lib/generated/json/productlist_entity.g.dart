@@ -218,6 +218,18 @@ ProductlistProductsProductStock $ProductlistProductsProductStockFromJson(Map<Str
 	if (subRackNo != null) {
 		productlistProductsProductStock.subRackNo = subRackNo;
 	}
+
+
+	final int? wholesaleCount = jsonConvert.convert<int>(json['wholesale_count']);
+	if (wholesaleCount != null) {
+		productlistProductsProductStock.wholesaleCount = wholesaleCount;
+	}
+	final String? wholesaleUnit = jsonConvert.convert<String>(json['wholesale_unit']);
+	if (wholesaleUnit != null) {
+		productlistProductsProductStock.wholesaleUnit = wholesaleUnit;
+	}
+
+
 	return productlistProductsProductStock;
 }
 
@@ -233,5 +245,8 @@ Map<String, dynamic> $ProductlistProductsProductStockToJson(ProductlistProductsP
 	data['product_price'] = entity.productPrice;
 	data['product_purchase_price'] = entity.productPurchasePrice;
 	data['sub_rack_no'] = entity.subRackNo;
+	data['wholesale_count'] = entity.wholesaleCount;
+	data['wholesale_unit'] = entity.wholesaleUnit;
+
 	return data;
 }

@@ -439,6 +439,11 @@
   "pleasewaitforOTP_ar": "يرجى الانتظار قبل إعادة الإرسال",
 
   "dohaqatar_en": "Doha Qatar",
-  "dohaqatar_ar": "الدوحة قطر"
+  "dohaqatar_ar": "الدوحة قطر",
 
+  "unit_en": "Unit",
+  "unit_ar": "وحدة",
+
+  "unitqty_en": "Unit Quantity",
+  "unitqty_ar": "وحدة الكمية"
 }
