@@ -302,26 +302,26 @@ Map<CategoryListCategories,ProductlistEntity >productwithcategory=new Map();
 
                 List<ProductlistProducts> plist=[];
 
+                plist.addAll(productListProvider.post.products);
 
-
-                List<Map<String, dynamic>> a= await  new DatabaseHelper().queryAllRows(DatabaseTables.allproducts);
-                for (Map ab in a) {
-                  print(ab.length.toString() + " \n");
-                  print("data \n");
-
-
-                  int id = ab["keyid"];
-                  String data = ab["data"];
-
-                  var jsondata = jsonDecode(data);
-
-
-                  ProductlistEntity p=ProductlistEntity.fromJson(jsondata);
-
-
-                  plist.addAll(p.products);
-
-                }
+                // List<Map<String, dynamic>> a= await  new DatabaseHelper().queryAllRows(DatabaseTables.allproducts);
+                // for (Map ab in a) {
+                //   print(ab.length.toString() + " \n");
+                //   print("data \n");
+                //
+                //
+                //   int id = ab["keyid"];
+                //   String data = ab["data"];
+                //
+                //   var jsondata = jsonDecode(data);
+                //
+                //
+                //   ProductlistEntity p=ProductlistEntity.fromJson(jsondata);
+                //
+                //
+                //
+                //
+                // }
 
                 for(int i=0;i<plist.length;i++)
                 {

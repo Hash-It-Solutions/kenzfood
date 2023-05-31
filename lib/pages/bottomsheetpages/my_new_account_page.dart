@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kenz_market_new/pages/voucher_list.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 import '../../config/constant.dart';
@@ -14,6 +14,7 @@ import '../../utils/LanguageValues.dart';
 import '../../utils/ResponsiveInfo.dart';
 import 'package:image_cropper/image_cropper.dart';
 
+import '../../utils/ServerConstants.dart';
 import '../../utils/Staticvalues.dart';
 import '../../widgets/widgetHelper.dart';
 import '../deactivate_account.dart';
@@ -26,6 +27,9 @@ import '../resorce_web.dart';
 import '../user_address.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_web_auth/flutter_web_auth.dart';
+import 'package:zendesk_messaging/zendesk_messaging.dart';
+
+
 
 class MyNewAccountPage extends StatefulWidget {
   const MyNewAccountPage() : super();
@@ -39,15 +43,21 @@ class MyNewAccountPage extends StatefulWidget {
 class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
 
-  List<String>menuitems=["Edit Profile","My Address","Chat","My Orders","My Wishlist","Vouchers",  "Reset Password", "Language"  ,  "Terms and Condition","Privacy Policy","Logout","Delete Account"];
+  List<String>menuitems=["Edit Profile","My Address","Chat","My Orders","My Wishlist","Vouchers",   "Language"  ,  "Terms and Condition","Privacy Policy","Logout","Delete Account"];
 
-  List<String>menuimages=["images/edtprofile.png","images/map.png","images/mychat.png", "images/myorders.png","images/wishlist.png","images/myvouchers.png","images/resetpassword.png","images/language.png","images/terms.png","images/ppo.png","images/logout.png","images/deleteacc.png"];
+  List<String>menuimages=["images/edtprofile.png","images/map.png","images/mychat.png", "images/myorders.png","images/wishlist.png","images/myvouchers.png","images/language.png","images/terms.png","images/ppo.png","images/logout.png","images/deleteacc.png"];
 
  File ?image;
  bool _isloading=false;
  UserModel? usm;
 
- String kenz="",yes="",no="",logoutmsg="";
+ String kenz="",yes="",no="",logoutmsg="",profilemsg="";
+  static const String androidChannelKey = "your android key";
+  static const String iosChannelKey = "your iOS key";
+
+  final List<String> channelMessages = [];
+
+  bool isLogin=false;
 
   @override
   void initState() {
@@ -55,10 +65,38 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
     super.initState();
     setData();
     checkLanguage();
+
+    ZendeskMessaging.initialize(
+      androidChannelKey: androidChannelKey,
+      iosChannelKey: iosChannelKey,
+    );
+
+    ZendeskMessaging.setMessageHandler((type, arguments) {
+      setState(() {
+        // channelMessages.add("$type - args=$arguments");
+      });
+    });
+
+
   }
 
 
+  void _login() {
+    // You can attach local observer when calling some methods to be notified when ready
+    ZendeskMessaging.loginUserCallbacks(
+      jwt: "my_jwt",
+      onSuccess: (id, externalId) => setState(() {
+        channelMessages.add("Login observer - SUCCESS: $id, $externalId");
+        isLogin = true;
 
+        ZendeskMessaging.show();
+      }),
+      onFailure: () => setState(() {
+        channelMessages.add("Login observer - FAILURE!");
+        isLogin = false;
+      }),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +203,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
                                             child: FloatingActionButton(
                                               onPressed: () async {
                                                 Widget yesButton = TextButton(
-                                                    child: Text("Yes",
+                                                    child: Text(yes,
                                                       style: TextStyle(
                                                           fontSize: ResponsiveInfo
                                                               .isMobile(context)
@@ -183,7 +221,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
 
                                                 Widget noButton = TextButton(
-                                                  child: Text("No",
+                                                  child: Text(no,
                                                       style: TextStyle(
                                                           fontSize: ResponsiveInfo
                                                               .isMobile(context)
@@ -198,7 +236,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
                                                 // set up the AlertDialog
                                                 AlertDialog alert = AlertDialog(
-                                                  title: Text("Kenz Food",
+                                                  title: Text(kenz,
                                                       style: TextStyle(
                                                           fontSize: ResponsiveInfo
                                                               .isMobile(context)
@@ -207,7 +245,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
                                                               context) ? 14 : 16
                                                               : 18)),
                                                   content: Text(
-                                                      "We will keep your profile photo secure, We do not going to share outside.Do you want to continue ?",
+                                                      profilemsg,
                                                       style: TextStyle(
                                                           fontSize: ResponsiveInfo
                                                               .isMobile(context)
@@ -313,6 +351,15 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
                                   onTap: () async {
                                     switch (index) {
+
+
+                                      case 0:
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (_) => EditProfile()));
+
+                                        break;
                                       case 1:
                                         Navigator.push(
                                             context,
@@ -322,21 +369,14 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
                                         break;
 
-                                      case 0:
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (_) => EditProfile()));
-
-                                        break;
-
-
                                       case 2:
+
+                                     //   _login();
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (_) => GroupChatScreen("", "id")));
-                                      //chat
+
 
                                         break;
 
@@ -354,7 +394,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
                                         final datastorage = await SharedPreferences.getInstance();
 
-                                     datastorage.setString("wishlist","yes");
+                                        datastorage.setString("wishlist","yes");
     
 
                                         break;
@@ -370,26 +410,26 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
                                         break;
 
+                                      // case 6:
+                                      //
+                                      //   final datastorage =
+                                      //   await SharedPreferences
+                                      //       .getInstance();
+                                      //
+                                      //   String? userid=datastorage.getString("userid");
+                                      //
+                                      //   Navigator.push(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //           builder: (_) =>
+                                      //               ResetPassword(userId: userid.toString())
+                                      //         //ChangePassword(),
+                                      //       ));
+                                      //
+                                      //   break;
+
+
                                       case 6:
-
-                                        final datastorage =
-                                        await SharedPreferences
-                                            .getInstance();
-
-                                        String? userid=datastorage.getString("userid");
-
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (_) =>
-                                                    ResetPassword(userId: userid.toString())
-                                              //ChangePassword(),
-                                            ));
-
-                                        break;
-
-
-                                      case 7:
 
 
 
@@ -450,18 +490,8 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
 
 
-                                      case 8:
+                                      case 7:
 
-
-
-
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (_) =>
-                                        //             ResorceWeb("https://kenzfood.com/termsandconditions")
-                                        //       //ChangePassword(),
-                                        //     ));
 
                                         final result = await FlutterWebAuth.authenticate(url: "https://kenzfood.com/termsandconditions", callbackUrlScheme: "my-custom-app");
 
@@ -471,7 +501,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
                                         break;
 
 
-                                      case 9:
+                                      case 8:
 
                                         final result = await FlutterWebAuth.authenticate(url: "http://kenzfood.com/privacypolicy", callbackUrlScheme: "my-custom-app");
 
@@ -491,7 +521,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
 
 
-                                      case 10:
+                                      case 9:
 
                                         Widget yesButton = TextButton(
                                             child: Text(yes),
@@ -530,7 +560,7 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
 
                                         break;
 
-                                      case 11 :
+                                      case 10 :
 
                                         Navigator.push(
                                             context,
@@ -592,6 +622,56 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
       final tempImage = File(image.path);
+      String apiToken = await getStringValue("token");
+
+      var headers = {'x-access-token': apiToken};
+
+
+      String url1=ServerConstants.baseurl+"update_user";
+
+      // Map<String,String>mp={"username":name };
+
+      print("url image path : "+  url1);
+
+      print("Selected image path : "+  tempImage.path);
+
+
+      // url1=ServerConstants.baseurl+ServerConstants.insertwholesaleuser;
+
+
+
+
+
+
+      var url = Uri.parse(url1);
+      var request = new http.MultipartRequest("PUT", url);
+      // request.fields["firstname"]="";
+      // request.fields["lastname"]="";
+      // request.fields["email"]="";
+
+      request.headers.addAll(headers);
+
+
+      request.files.add(
+          await http.MultipartFile.fromPath(
+              "user_image",
+              tempImage.path
+          )
+      );
+
+      // request.files.add(
+      //     await http.MultipartFile.fromPath(
+      //         "document_url2",
+      //         filepath2
+      //     )
+      // );
+      // _progressDialog.dismissProgressDialog(context);
+
+      final response = await request.send();
+
+      print(response.statusCode);
+
+
 
       setState(() {
         this.image = tempImage;
@@ -650,8 +730,9 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
         no=lde['No_en'];
         logoutmsg=lde['logoutmsg_en'];
         kenz=lde['kenz_food_en'];
+        profilemsg=lde['profilemsg_en'];
 
-        menuitems=["Edit Profile","My Address","Chat","My Orders","My Wishlist","Vouchers",  "Reset Password", "Language"  ,  "Terms and Condition","Privacy Policy","Logout","Delete Account"];
+        menuitems=["Edit Profile","My Address","Chat","My Orders","My Wishlist","Vouchers", "Language"  ,  "Terms and Condition","Privacy Policy","Logout","Delete Account"];
 
       }
       else{
@@ -659,7 +740,8 @@ class _MyNewAccountPageState extends State<MyNewAccountPage> {
         no=lde['No_ar'];
         logoutmsg=lde['logoutmsg_ar'];
         kenz=lde['kenz_food_ar'];
-        menuitems=["تعديل الملف الشخصي","عنواني","محادثة","طلباتي","قائِمة أُمْنيّات","القسائم",  "إعادة تعيين كلمة المرور", "لغة"  ,  "الأحكام والشروط","سياسة الخصوصية","تسجيل خروج","حذف الحساب"];
+        profilemsg=lde['profilemsg_ar'];
+        menuitems=["تعديل الملف الشخصي","عنواني","محادثة","طلباتي","قائِمة أُمْنيّات","القسائم", "لغة"  ,  "الأحكام والشروط","سياسة الخصوصية","تسجيل خروج","حذف الحساب"];
 
       }
 

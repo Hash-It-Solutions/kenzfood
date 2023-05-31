@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/ServerConstants.dart';
 import 'homescreen.dart';
 import 'package:http/http.dart' as http;
-import 'package:custom_progress_dialog/custom_progress_dialog.dart';
+// import 'package:custom_progress_dialog/custom_progress_dialog.dart';
 
 class WelComScreen extends StatefulWidget {
    WelComScreen() : super();
@@ -26,7 +26,7 @@ class WelComScreen extends StatefulWidget {
 
 class _WelComScreenState extends State<WelComScreen> {
 
-  ProgressDialog _progressDialog = ProgressDialog();
+  // ProgressDialog _progressDialog = ProgressDialog();
 
   List<String>arraybanners=["images/kenzcreativeone.png",
   "images/kenztwo.png",
@@ -225,8 +225,8 @@ class _WelComScreenState extends State<WelComScreen> {
 
     try {
 
-      _progressDialog.showProgressDialog(
-          context, textToBeDisplayed: "Please wait for a moment......");
+      // _progressDialog.showProgressDialog(
+      //     context, textToBeDisplayed: "Please wait for a moment......");
 
 
 
@@ -377,9 +377,9 @@ class _WelComScreenState extends State<WelComScreen> {
 
       new DatabaseHelper().insert(data_To_Table, DatabaseTables.allproducts);
 
-      if(!_progressDialog.isDismissed) {
-        _progressDialog.dismissProgressDialog(context);
-      }
+      // if(!_progressDialog.isDismissed) {
+      //   _progressDialog.dismissProgressDialog(context);
+      // }
 
 
 

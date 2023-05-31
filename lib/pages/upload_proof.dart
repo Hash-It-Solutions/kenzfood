@@ -10,7 +10,7 @@ import '../utils/ServerConstants.dart';
 import '../widgets/widgetHelper.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:custom_progress_dialog/custom_progress_dialog.dart';
+// import 'package:custom_progress_dialog/custom_progress_dialog.dart';
 
 class UploadProof extends StatefulWidget {
 
@@ -473,8 +473,8 @@ class _UploadProofState extends State<UploadProof> {
 
             if(filepath1.isNotEmpty&&filepath2.isNotEmpty)
               {
-                ProgressDialog _progressDialog = ProgressDialog();
-                _progressDialog.showProgressDialog(context);
+                // ProgressDialog _progressDialog = ProgressDialog();
+                // _progressDialog.showProgressDialog(context);
                 String url1=ServerConstants.baseurl+ServerConstants.insertwholesaleuser;
 
                 Map<String,String>mp={"username":name };
@@ -512,9 +512,9 @@ class _UploadProofState extends State<UploadProof> {
 
                 print(response.statusCode);
 
-                if(!_progressDialog.isDismissed) {
-                  _progressDialog.dismissProgressDialog(context);
-                }
+                // if(!_progressDialog.isDismissed) {
+                //   _progressDialog.dismissProgressDialog(context);
+                // }
 
                 if(response.statusCode==200)
                   {

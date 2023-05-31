@@ -16,10 +16,10 @@ PODS:
     - Firebase/Auth (= 10.7.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.9.0):
+  - firebase_core (2.11.0):
     - Firebase/CoreOnly (= 10.7.0)
     - Flutter
-  - firebase_database (10.1.0):
+  - firebase_database (10.1.2):
     - Firebase/Database (= 10.7.0)
     - firebase_core
     - Flutter
@@ -32,7 +32,7 @@ PODS:
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
-  - FirebaseCoreInternal (10.7.0):
+  - FirebaseCoreInternal (10.9.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - FirebaseDatabase (10.7.0):
     - FirebaseCore (~> 10.0)
@@ -82,7 +82,7 @@ PODS:
   - "GoogleUtilities/NSData+zlib (7.11.1)"
   - GoogleUtilities/Reachability (7.11.1):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (3.1.0)
+  - GTMSessionFetcher/Core (3.1.1)
   - image_cropper (0.0.4):
     - Flutter
     - TOCropViewController (~> 2.6.1)
@@ -100,7 +100,7 @@ PODS:
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - sqflite (0.0.2):
+  - sqflite (0.0.3):
     - Flutter
     - FMDB (>= 2.7.5)
   - Toast (4.0.0)
@@ -109,6 +109,34 @@ PODS:
     - Flutter
   - webview_flutter_wkwebview (0.0.1):
     - Flutter
+  - Zendesk (1.11.0):
+    - ZendeskSDKConversationKit (~> 1.8.0)
+    - ZendeskSDKCoreUtilities (~> 1.2.0)
+  - zendesk_messaging (2.11.0):
+    - Flutter
+    - ZendeskSDKMessaging (= 2.11.0)
+  - ZendeskSDKConversationKit (1.8.0):
+    - ZendeskSDKCoreUtilities (~> 1.2.0)
+    - ZendeskSDKFayeClient (~> 1.3.0)
+    - ZendeskSDKHTTPClient (~> 0.11.0)
+    - ZendeskSDKStorage (~> 0.6.0)
+  - ZendeskSDKCoreUtilities (1.2.0)
+  - ZendeskSDKFayeClient (1.3.0):
+    - ZendeskSDKLogger (~> 0.6.0)
+    - ZendeskSDKSocketClient (~> 1.3.0)
+  - ZendeskSDKHTTPClient (0.11.0):
+    - ZendeskSDKLogger (~> 0.6.0)
+  - ZendeskSDKLogger (0.6.0)
+  - ZendeskSDKMessaging (2.11.0):
+    - Zendesk (~> 1.11.0)
+    - ZendeskSDKConversationKit (~> 1.8.0)
+    - ZendeskSDKCoreUtilities (~> 1.2.0)
+    - ZendeskSDKUIComponents (~> 2.6.0)
+  - ZendeskSDKSocketClient (1.3.0):
+    - ZendeskSDKLogger (~> 0.6.0)
+  - ZendeskSDKStorage (0.6.0):
+    - ZendeskSDKLogger (~> 0.6.0)
+  - ZendeskSDKUIComponents (2.6.0)
 
 DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
@@ -127,11 +155,12 @@ DEPENDENCIES:
   - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - myfatoorah_flutter (from `.symlinks/plugins/myfatoorah_flutter/ios`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
-  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
+  - zendesk_messaging (from `.symlinks/plugins/zendesk_messaging/ios`)
 
 SPEC REPOS:
   trunk:
@@ -150,6 +179,16 @@ SPEC REPOS:
     - Reachability
     - Toast
     - TOCropViewController
+    - Zendesk
+    - ZendeskSDKConversationKit
+    - ZendeskSDKCoreUtilities
+    - ZendeskSDKFayeClient
+    - ZendeskSDKHTTPClient
+    - ZendeskSDKLogger
+    - ZendeskSDKMessaging
+    - ZendeskSDKSocketClient
+    - ZendeskSDKStorage
+    - ZendeskSDKUIComponents
 
 EXTERNAL SOURCES:
   connectivity:
@@ -185,26 +224,28 @@ EXTERNAL SOURCES:
   myfatoorah_flutter:
     :path: ".symlinks/plugins/myfatoorah_flutter/ios"
   path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/ios"
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   shared_preferences_foundation:
-    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
   webview_flutter_wkwebview:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
+  zendesk_messaging:
+    :path: ".symlinks/plugins/zendesk_messaging/ios"
 
 SPEC CHECKSUMS:
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
   firebase_auth: 66041d972b0c93a4f146573e5c6c9a030d92e2e1
-  firebase_core: d85432877e814811e040e7659f9c82faeab66e04
-  firebase_database: 7dfac1ef83539a3716784b11f4d72d077c3464c2
+  firebase_core: dee76ded6c693fdb38b8ea39aef7129e32e587a3
+  firebase_database: 00acc7a76fddd02fcf148b89b562e5cf5b8554e7
   FirebaseAuth: dd64c01631df724b09f33e584625775c52f7d71f
   FirebaseCore: e317665b9d744727a97e623edbbed009320afdd7
-  FirebaseCoreInternal: 8845798510aae74703467480f71ac613788d0696
+  FirebaseCoreInternal: d2b4acb827908e72eca47a9fd896767c3053921e
   FirebaseDatabase: 06195bac336b5e4c893ec04a111631a4cdb00178
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_inappwebview: bfd58618f49dc62f2676de690fc6dcda1d6c3721
@@ -217,8 +258,8 @@ SPEC CHECKSUMS:
   google_maps_flutter_ios: 3e0b99383a8003b8169d06e7e324170bd0424105
   GoogleMaps: 032f676450ba0779bd8ce16840690915f84e57ac
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
-  GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
-  image_cropper: 60c2789d1f1a78c873235d4319ca0c34a69f2d98
+  GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
+  image_cropper: a3291c624a953049bc6a02e1f8c8ceb162a24b25
   image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   myfatoorah_flutter: 7db54f4e59b70038704a174c3511718e0d1746b1
@@ -227,12 +268,23 @@ SPEC CHECKSUMS:
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   shared_preferences_foundation: 986fc17f3d3251412d18b0265f9c64113a8c2472
-  sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
+  sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
   webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
+  Zendesk: 4e1b5e6fd3a28034868e4bc9bb490020e2efadd0
+  zendesk_messaging: b6bec17d7fe6ce4c9096d2a8860728be15615adc
+  ZendeskSDKConversationKit: 2360456d7b7d181e9bfca97c86cf9d0726274984
+  ZendeskSDKCoreUtilities: 7b6e55b31f6ffec8ff1b2a84797ebb447c623b2f
+  ZendeskSDKFayeClient: 169812e13a1f3d175b38449b37a5e23b19fd3908
+  ZendeskSDKHTTPClient: 81ccf190c1221ff7e4980ddf719711c4ce5baffb
+  ZendeskSDKLogger: aee4388c6c6fc341ec57bbb87479768130b796da
+  ZendeskSDKMessaging: 6199b37f8b62ba266be741b979a72db8251c629d
+  ZendeskSDKSocketClient: 53b9481906f38b5d35833535260cd872f5f28a27
+  ZendeskSDKStorage: cc4fcbfd50544d8fe26d5cfdc63f5c6455152e5e
+  ZendeskSDKUIComponents: e2bc335781ae57c13fddb1512dc3c0c56403c0aa
 
-PODFILE CHECKSUM: 57c8aed26fba39d3ec9424816221f294a07c58eb
+PODFILE CHECKSUM: 20449ab27ec74b36f170c4aaaa29b831847716c6
 
 COCOAPODS: 1.12.0

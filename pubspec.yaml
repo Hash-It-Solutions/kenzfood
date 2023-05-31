@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: ">=3.0.1 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -44,8 +44,6 @@ dependencies:
   google_maps_flutter: ^2.2.5
   path_provider: ^2.0.14
 
-    # The following adds the Cupertino Icons font to your application.
-    # Use with the CupertinoIcons class for iOS style icons.
 
   pin_code_fields: ^7.4.0
   http: ^0.13.5
@@ -71,20 +69,21 @@ dev_dependencies:
   carousel_slider: ^4.2.1
   flutter_staggered_animations: ^1.1.1
   geolocator: ^9.0.2
-  provider: ^6.0.4
+  provider: ^6.0.5
   connectivity: ^3.0.6
-  shared_preferences: ^2.1.0
+  shared_preferences: ^2.1.1
   page_indicator: ^0.4.1
   geocoding: ^2.1.0
   myfatoorah_flutter: ^2.1.18
   flutter_typeahead: ^4.3.1
-  sqflite: ^1.2.0
+  sqflite: ^2.1.0
   path_provider: ^2.0.0
   animated_notch_bottom_bar: ^0.0.6
-  image_cropper: ^3.0.2
+  image_cropper: ^4.0.1
   country_code_picker: ^3.0.0
   flutter_web_auth: ^0.5.0
-  custom_progress_dialog: ^1.0.5
+  zendesk_messaging: ^2.7.5
+#  custom_progress_dialog: ^1.0.5
 
 
 # For information on the generic Dart part of this file, see the

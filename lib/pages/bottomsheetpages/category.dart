@@ -7,6 +7,7 @@ import 'package:kenz_market_new/models/category_list_entity.dart';
 
 
 import '../../dataproviders/CategoryDataProvider.dart';
+import '../../dataproviders/ProductListProvider.dart';
 import '../../dataproviders/SearchDataProvider.dart';
 import '../../models/productlist_entity.dart';
 import '../../utils/LanguageValues.dart';
@@ -18,6 +19,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:page_indicator/page_indicator.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 
+import '../../utils/ServerConstants.dart';
 import '../my_product_details_page.dart';
 import '../product_details_page.dart';
 import '../productlist.dart';
@@ -42,6 +44,7 @@ class _CategoryState extends State<Category> {
 
   String language="",search_hint="",allcategories="";
   late SearchProductListProvider searchProductListProvider;
+  late ProductListProvider productListProvider;
   @override
   void initState() {
     // TODO: implement initState
@@ -50,6 +53,8 @@ class _CategoryState extends State<Category> {
     postMdl.getPostData(context);
 
     searchProductListProvider=Provider.of<SearchProductListProvider>(context, listen: false);
+    productListProvider = Provider.of<ProductListProvider>(context, listen: false);
+    productListProvider.getPostData(context, "0", ServerConstants.allparam);
 
     super.initState();
     checkLanguage();
@@ -195,7 +200,9 @@ class _CategoryState extends State<Category> {
 
                         // return await BackendService.getSuggestions(pattern);
 
-                        List<ProductlistProducts> plist= await   getSearchProductList(pattern);
+                        List<ProductlistProducts> plist= [];
+
+                        plist.addAll(productListProvider.post.products);
 
                         String d="";
                         List<ProductlistProducts> products=[];
